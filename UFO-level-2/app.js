@@ -26,9 +26,16 @@ let fState=data.filter(data => data.state === inpST);
 let fCountry=data.filter(data => data.country === inpCTRY);
 let fShape=data.filter(data => data.shape === inpSHP);
 
-let fData=data.filter(data => data.datetime === inpDate | data.city === inpCity | data.state === inpST | data.country === inpCTRY | data.shape === inpSHP)
+// let fData = data.filter(data => data.datetime === inpDate | data.city === inpCity | data.state === inpST | data.country === inpCTRY | data.shape === inpSHP)
 
 // let fData=data.filter(data => fDate || fCity || fState || fCountry || fShape)
+
+let fData = data.filter(function(el) {
+  return el.fDate === inpDate | 
+        el.fCity === inpCity |
+        el.fState === inpST;
+}); 
+
 
 tbody.html('');
   if (fData.length!==0){tblOn(fData);}
